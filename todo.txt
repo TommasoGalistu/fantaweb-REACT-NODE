@@ -1,4 +1,9 @@
-sto standardizzando le fetch. mi mancano da fare list group e logout.
+calendario ho un exel
+formazione e punteggio ho un exel
+classifica ho un exel
+rose da csv
 
-dopodichè serve inserire la pagina di caricamento ad ogni richiesta. ho fatto la pagina e preparato
-il contesto. bisogna provarlo nella fetch standard
+prime cose da fare
+pagina home con pubblicità
+gradi dei partecipanti
+regolamenti da poter creare

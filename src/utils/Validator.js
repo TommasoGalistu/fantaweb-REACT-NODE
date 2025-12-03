@@ -50,6 +50,7 @@ export class Validator {
           errors[field] = rules.validate.message;
         }
       }
+      
     }
     
     return Object.keys(errors).length > 0 ? errors : null;

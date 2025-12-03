@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContextData } from "../store/data";
+import { ContextData } from "../store/context";
 import styles from "./LoadingScreen.module.css"; // Importa il CSS per lo stile
 
 const LoadingScreen = () => {

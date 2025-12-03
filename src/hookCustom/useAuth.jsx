@@ -1,10 +1,10 @@
 import { useState, useEffect, use } from "react";
-import {ContextData} from "../store/data";
+import {ContextData} from "../store/context";
 
 // hook per vedere se l'utente ha il token
 const useAuth = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(null); // null = caricamento
-    const {isLoggin, setIsLoggin} = use(ContextData)
+    const {isLoggin, setIsLoggin, setRole} = use(ContextData)
 
     useEffect (() =>{
         const checkAuth = async () =>{
@@ -21,13 +21,16 @@ const useAuth = () => {
               }
     
               const data = await response.json()
+              console.log(data.role)
               setIsLoggin(data.message)
               setIsAuthenticated(true)
+              setRole(data.role)
               console.log(data.message)
               
             }catch(error){
               console.log(error.message)
               setIsAuthenticated(false)
+              setRole('')
               // return  {error: error.message};
             }
         }

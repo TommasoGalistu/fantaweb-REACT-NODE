@@ -1,57 +1,41 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
 
-const userSchema = new mongoose.Schema({
-    // username: {
-    // type: String,
-    // required: [true, 'Lo username è obbligatorio'],
-    // minlength: [3, 'Lo username deve avere almeno 3 caratteri'],
-    // trim: true
-    // },
-    // name: {
-    // type: String,
-    // required: [true, 'Il nome è obbligatorio'],
-    // minlength: [3, 'Lo username deve avere almeno 3 caratteri'],
-    // trim: true
-    // },
-    // surname: {
-    // type: String,
-    // required: [true, 'Il cognome è obbligatorio'],
-    // minlength: [3, 'Lo username deve avere almeno 3 caratteri'],
-    // trim: true
-    // },
-    email: {
-        type: String,
-        required: [true, "L'email è obbligatoria"],
-        lowercase: true,
-        unique: true,
-        match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Email o password sono errati"]
+const User = sequelize.define('User', {
+    username:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
-    password:{
-        type: String,
-        required: [true, "Email o password sono errati"],
-        validate:{
-            validator: function(value){
-                return (
-                    value.length >= 8 &&
-                    /[A-Z]/.test(value) &&        // almeno una maiuscola
-                    /[a-z]/.test(value) &&        // almeno una minuscola
-                    /[0-9]/.test(value) &&        // almeno un numero
-                    /[!@#$%^&*(),.?":{}|<>]/.test(value) && // almeno un simbolo
-                    !/\s/.test(value)
-                )
-            }
-        }
+    name:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    surname:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     role:{
-        type: String,
-        enum: ['customer', 'admin'],
-        default: "customer",
-        required: true
+        type: DataTypes.ENUM('boss', 'admin', 'user'),
+        allowNull: false,
+        defaultValue: 'user'
     },
-    refresh_token:{
-        type: String,
-        required: false
+    isEmailVerified:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
-}, { timestamps: true})
+}, {
+  tableName: 'users'
+});
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = User;

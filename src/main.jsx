@@ -5,7 +5,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 import './index.css'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCircleCheck, faCircleXmark, faHouseUser,faUser, faClipboardList, faCalendarCheck, faUserTie } from '@fortawesome/free-solid-svg-icons';
 
+library.add(faCircleCheck, faCircleXmark, faHouseUser, faUser,faClipboardList, faCalendarCheck, faUserTie); 
 
 import App from './App.jsx'
 

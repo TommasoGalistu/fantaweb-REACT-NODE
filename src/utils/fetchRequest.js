@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContextData } from "../store/data";
+import { ContextData } from "../store/context";
 
 const useFetchWithLoading = () => {
     const { showLoading, hideLoading, setIsLoggin } = useContext(ContextData);
@@ -10,7 +10,10 @@ const useFetchWithLoading = () => {
             showLoading(); 
             const response = await fetch(url, {
                 ...options,
-                credentials: "include", // Mantiene la sessione
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "include",
             });
 
             if (!response.ok) {
@@ -18,12 +21,14 @@ const useFetchWithLoading = () => {
                 console.log("Errore backend:", errData);
                 throw new Error(errData.error || 'Errore sconosciuto');
             }
-            setIsLoggin(true)
+            
+            setIsLoggin(() => true)
+            
             return response.json();
 
 
         } catch (error) {
-            setIsLoggin(false)
+            setIsLoggin(() => false)
             
             return  {error: error.message};
 

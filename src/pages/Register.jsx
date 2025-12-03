@@ -35,9 +35,7 @@ function Register() {
 
             const response = await fetchData('http://localhost:3000/register',{
                 method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                
                 body: JSON.stringify(dataObj)
             })
             
@@ -76,10 +74,43 @@ function Register() {
     }
 
   return (
-    <Container className='p-5'>
+   <Container className='p-5'>
             <Row className='justify-content-center'>
                 <Col xs={12} lg={6}>
-                    <Form onSubmit={validateForm}>
+                    <Form onSubmit={validateForm} >
+                        <Form.Group className="mb-3" controlId="formBasicEmail" >
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type="text" placeholder="Scrivi il tuo nome" name='username' required/>
+                        </Form.Group>
+                        {error.username && <span className='errorText'>{error.username}</span>}
+                        <Form.Group className="mb-3" controlId="formBasicEmail" >
+                            <Form.Label>Nome</Form.Label>
+                            <Form.Control type="text" placeholder="Scrivi il tuo nome" name='name' required/>
+                        </Form.Group>
+                        {error.name && <span className='errorText'>{error.name}</span>}
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Cognome</Form.Label>
+                            <Form.Control type="text" placeholder="Scrivi il tuo cognome" name='surname' required/>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Ti iscrivi come utente o come amministratore?</Form.Label>
+                            <Form.Check 
+                                type="radio"
+                                label="Utente"
+                                name="role"
+                                value="user"
+                                required
+                            />
+
+                            <Form.Check 
+                                type="radio"
+                                label="Amministratore"
+                                name="role"
+                                value="admin"
+                                required
+                            />
+                        </Form.Group>
+                        {error.role && <span className='errorText'>{error.role}</span>}
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control onChange={clearErro} type="email" placeholder="Enter email" name='email' required/>
@@ -92,7 +123,7 @@ function Register() {
                         {error.password && <span className='errorText'>{error.password}</span>}
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Conferma Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" name='confirm_password' />
+                            <Form.Control type="password" name='confirm_password' placeholder="Password" />
                         </Form.Group>
                         {error.confirm_password && <span className='errorText'>{error.confirm_password}</span>}
                         <ErrorTextForm typeText={response.type}>{response.res}</ErrorTextForm>

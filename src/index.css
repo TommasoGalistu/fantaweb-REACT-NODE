@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* background-color: var(--colore-primario);
+    color: var(--colore-testo); */
+}
+
+:root {
+  --sfondo-sito: rgb(255, 251, 238);
+  --colore-primario: #C2B280;
+  --colore-primario-rgba-widget-background: rgba(255, 247, 225, 0.4);
+  --box-background: rgb(253, 240, 200);
+  /* testo importante */
+  --testo-widget:#58503b;
+  --testo-importante:#8B7D5C;
+  --sfondo-chiaro-sezioni:#EDE6D1;
+  --bottoni-sfondo:#9BA17B;
+  --sfondo-alternativo:#AAB7B8;
+  --border-active-widget:#ffd24a;
+  
+  /* homepageflex */
+  --gap-flex-home: 1.5rem;
+
+
+
+  --header-heigth: 65px;
+  /* fine */
+  
+
+  --colore-testo: #b2e5b4;
+  --colore-sottolineatura: #5bee60;
+  --colore-primario3: #D1C4E9;
+  --colore-primario4: #F0F4F8;
+  --colore-primario5: #FFE0B2;
+  /* --colore-primario6: #E0F7FA; button */
+  --margin-container: 2rem;
+  --gap-container-user: 3rem;
+  --margin-section: 2rem 0;
+  
+
+  --button-background: #E0F7FA;
+  --button-background-hover: #7bf0ff;
+  --button-padding: 0.5rem;
+  --button-radius: 20px;
+
+
+  --button-background-hover: #b6f4fd;
+  --button-background-active: #6aebff;
+
+  --border-select-div: var(--button-background-hover);
+  --background-color-select-div: var(--button-background-active);
+  --border-radius-button: 15px;
+}

@@ -4,7 +4,8 @@ import Header from "../components/Header"
 import LoadingScreen from "./LoadingScreen.jsx";
 import useAuth from "../hookCustom/useAuth";
 import { useContext, useEffect, useState } from "react";
-import { ContextData } from "../store/data.jsx";
+import { ContextData } from "../store/context.jsx";
+import Footer from "../components/Footer.jsx";
 
 
 function Root(){
@@ -17,8 +18,12 @@ function Root(){
 
     return <>
         {loading && <LoadingScreen />}
+        <main>
+            <Outlet />
+        </main>
         <Header  />
-        <Outlet />
+        
+        <Footer></Footer>
     </>
 }
 

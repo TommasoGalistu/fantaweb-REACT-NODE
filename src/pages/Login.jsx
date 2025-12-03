@@ -35,9 +35,7 @@ function Login(){
             
             const response = await fetchData('http://localhost:3000/login',{
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                
                 body: JSON.stringify(dataObj)
             })
             if (response.error) {
@@ -94,7 +92,7 @@ function Login(){
                         </Button>
                     </Form>
                     <div className="mt-3">
-                        <Link to="/register">Clicca per Registrarti</Link>
+                        <Link to="/registrati">Clicca per Registrarti</Link>
                     </div>
                 </Col>
             </Row>

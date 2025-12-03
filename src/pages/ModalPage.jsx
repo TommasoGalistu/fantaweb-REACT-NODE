@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import Modal from "../components/Modal";
+import ModalPersonal from "../components/ModalPersonal";
 
 const ModalContext = createContext();
 
@@ -20,7 +20,7 @@ export const ModalProvider = ({ children }) => {
     return (
         <ModalContext.Provider value={{ openModal, closeModal }}>
             {children}
-            <Modal isOpen={modal.isOpen} message={modal.message} onClose={closeModal} />
+            <ModalPersonal isOpen={modal.isOpen} message={modal.message} onClose={closeModal} />
         </ModalContext.Provider>
     );
 };

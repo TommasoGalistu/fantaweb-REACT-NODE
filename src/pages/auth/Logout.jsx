@@ -1,5 +1,5 @@
 import { use } from 'react';
-import { ContextData} from '../../store/data';
+import { ContextData} from '../../store/context';
 import {  useNavigate } from 'react-router-dom';
 import useFetchWithLoading from '../../utils/fetchRequest';
 

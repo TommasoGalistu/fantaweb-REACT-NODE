@@ -16,6 +16,14 @@ const registerSchema = {
     lowercase: true,
     match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Email non valida"]
   },
+  username: {
+    required: [true, "L'username è obbligatorio"],
+    lowercase: true,
+    trim: true
+  },
+  role: {
+    required: [true, "Il ruolo è obbligatorio"]
+  },
   password: {
     required: [true, "La password è obbligatoria"],
     length: [8, "La password deve essere almeno di 8 caratteri"],
@@ -49,8 +57,21 @@ const loginSchema = {
   }
 }
 
+const modalSchema = {
+   name: {
+    required: [true, "Il nome è obbligatorio"],
+    length: [3, "Il nome deve essere maggiore di 3 caratteri"],
+    trim: true
+  },
+   number_player: {
+    required: [true, "Il numero di giocatori è obbligatorio"],
+    trim: true
+  }
+}
+
 export const validator = new Validator(registerSchema);
 export const validatorLogin = new Validator(loginSchema);
+export const validatorModal = new Validator(modalSchema);
 
 
 
