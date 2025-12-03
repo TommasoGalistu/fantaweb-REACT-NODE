@@ -1,4 +1,4 @@
-⚽ Gestione Leghe Fantacalcio (FantaLeague Manager)
+⚽ Gestione Leghe Fantacalcio (FantaLeague Manager versione mobile)
 
 Un'applicazione web full-stack per la gestione completa delle leghe di Fantacalcio. L'obiettivo è fornire agli amministratori di lega tutti gli strumenti necessari per organizzare, gestire e comunicare con i partecipanti in modo efficiente.
 
